@@ -1,0 +1,72 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* table {
+  border-collapse: collapse;
+} */
+th {
+  text-align: center;
+  font-size: 15px;
+}
+td {
+  text-align: center;
+}
+table {
+  border-left: none;
+}
+
+.tables {
+  margin: 0 auto;
+}
+.btm_name {
+  text-align: right;
+  font-weight: bold;
+}
+#box {
+  /* overflow-x: auto; */
+}
+#part_1 {
+  /* border-right: 1px solid black; */
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+}
+.subName {
+  font-weight: bold;
+}
+#action {
+  border: none;
+}
+#actionDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 446px) {
+  .table > :not(caption) > * > * {
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 312px) {
+  #actionDiv {
+    display: block;
+  }
+  th {
+    font-size: 10px;
+  }
+  td {
+    font-size: 10px;
+  }
+  #part_1 {
+    font-size: 15px;
+  }
+}
+@media print {
+  .nikal {
+    display: none !important;
+  }
+  #nikal {
+    border-bottom: none;
+  }
+}
