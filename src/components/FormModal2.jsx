@@ -6,6 +6,8 @@ import { useSelector,useDispatch } from 'react-redux';
 import { Addpart2_data, Updatepart2_data } from '../Redux/actions/action';
 import { Part2Modal } from './Modal/Part2Modal';
 import { AiFillEdit } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const options1 =[{value:"Development",label:"Development"},
  {value:"Responsiblity",label:"Responsiblity"},
  {value:"Self Confidence", label:"Self Confidence"},
@@ -77,6 +79,9 @@ const FormModal2 = ({edit, idx,  data}) => {
                 setSubmitting(true);
                 resetForm();
                 setSubmitting(false);
+                toast.success(`Grades  is successfully Added`, {
+                  position: "bottom-right",
+                });
               }, 500);
             }}
           >
@@ -101,7 +106,7 @@ const FormModal2 = ({edit, idx,  data}) => {
                       isDisabled={edit}
                     />
                     {touched.category && errors.category ? (
-                      <span>{errors.category}</span>
+                      <span style={{color:"red"}} >{errors.category}</span>
                     ) : null}
                   </div>
                 </div>
@@ -116,7 +121,7 @@ const FormModal2 = ({edit, idx,  data}) => {
                       value={values.grade}
                     />
                     {touched.grade && errors.grade ? (
-                      <span>{errors.grade}</span>
+                      <span style={{color:"red"}} >{errors.grade}</span>
                     ) : null}
                   </div>
                 </div>
@@ -134,6 +139,7 @@ const FormModal2 = ({edit, idx,  data}) => {
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
+      <ToastContainer />
     </>
   )
 }

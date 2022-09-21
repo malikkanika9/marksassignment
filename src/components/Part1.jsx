@@ -1,11 +1,10 @@
 
 import { Row,Col } from "react-bootstrap";
-import "./style.css"
 import React from "react";
 import FormModal from "./FormModal";
 import { AiOutlineDelete } from "react-icons/ai";
 import { RemoveResult } from "../Redux/actions/action";
-import result from "../data/db.json"
+import "./styles/styles.css"
 import { useDispatch, useSelector } from "react-redux";
 const Part1 = () => {
   let  sum=(data)=>{
@@ -17,10 +16,11 @@ const Part1 = () => {
   }
 
 let  percentage=(data)=>{
-    let totalNumber = data.filter((item)=> item.name !== "Drawing").length * 100;
-     console.log(totalNumber)
-    return (((sum(data)*100)/totalNumber).toFixed(2))
-}
+    let totalNumber = data.filter((item)=> item.name !== "Drawing").length * 100 || 0
+    // console.log(totalNumber)
+    return (((sum(data)*100)/totalNumber).toFixed(2)) 
+  
+  }
   const { result_part1 } = useSelector((state) => state.result_data);
   const dispatch = useDispatch();
   const handleDelte = (id) => {
@@ -205,10 +205,10 @@ let  percentage=(data)=>{
                 md={4}
                 xs={4}
                 sm={4}
-                className="text-center  p-0 fw-bold paddingZero"
+                className="text-center  fw-bold "
               >
-                {item.FA_num + item.Oral_num1 + item.BA_num + item.Oral_num2}
-                {/* {handleTotal()} */}
+              &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;   {item.FA_num + item.Oral_num1 + item.BA_num + item.Oral_num2}
+            
                 <span
                   style={{ }}
                   onClick={() => handleDelte(item.id)}
@@ -218,7 +218,7 @@ let  percentage=(data)=>{
                   <AiOutlineDelete  className="red"/>
                 </span>
                 <span  className="float-end">
-                  {/* <AiFillEdit/> */}
+                
                   <FormModal idx={i} edit={true} data={item} />
                 </span>
               </Col>
@@ -257,10 +257,7 @@ let  percentage=(data)=>{
         </Col>
         <Col md={8} sm={8} xs={6} className="text-end">
           <Row>
-            <Col
-              xs={{ span: 4, offset: 8 }}
-              className="text-center fw-bold p-0"
-            >
+            <Col xs={{ span: 4, offset: 8 }}  className="text-center fw-bold p-0">
               {/* {((sumToatal*100)/(result_part1.length*100)).toFixed(2)} */}
               {percentage(result_part1)||0}
             </Col>

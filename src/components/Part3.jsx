@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RemovePart3_data } from  "../Redux/actions/action";
 import result from "../data/db.json"
 import FormModal3 from './FormModal3';
-import "./style.css"
+import "./styles/styles.css"
 
 const Part3 = () => {
     const { result_part3 } = useSelector(state => state.result_data3)
@@ -82,7 +82,7 @@ const Part3 = () => {
                 <Col>
                     <Row>
                         <Col xs={{ span: 4 }} className="fw-bold"> <span className="fw-bold">C.G.P:</span>  9.6</Col>
-                        <Col xs={{ span: 3, offset: 5 }} className="text-end"> <span className='fw-bold fw-bold fw-bold'> Grade:</span> A1</Col>
+                        <Col xs={{ span: 3, offset: 5 }} className="text-end fw-bold"> <span className='fw-bold fw-bold fw-bold'> Grade:</span> A1</Col>
                     </Row>
                     <Row>
                         <Col xs={{ span: 4 }} className="fw-bold">

@@ -1,10 +1,9 @@
 import {  Col,Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import "./style.css"
 import { RemovePart2_data, } from "../Redux/actions/action";
 import { AiOutlineDelete } from "react-icons/ai";
 import FormModal2 from "./FormModal2";
-
+import "./styles/styles.css"
 const Part2 = () => {
   const {result_part2} = useSelector(state => state.result_data2)
     console.log(result_part2);

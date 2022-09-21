@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddResult, EditeResult } from "../Redux/actions/action";
 import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
-
+import "./styles/styles.css"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 let Option = [
   { value: "English", label: "English" },
   { value: "Hindi", label: "Hindi" },
@@ -69,13 +71,18 @@ const FormModal = ({ edit, idx, data }) => {
               : dispatch(
                   AddResult({ ...values, id: Math.random() + Date.now() })
                 );
+                
             setTimeout(() => {
               // alert(JSON.stringify(values, null, 2))
               resetForm();
               setSubmitting(false);
+              toast.success(`Marks  is successfully Added`, {
+                position: "bottom-right",
+              });
             }, 500);
           }}
         >
+            
           {({
             values,
             errors,
@@ -99,7 +106,7 @@ const FormModal = ({ edit, idx, data }) => {
                     isDisabled={edit}
                   />
                   {touched.sub && errors.sub && (
-                    <span>{errors.sub}</span>
+                    <span style={{color:"red"}}>{errors.sub}</span>
                   ) } 
                 </div>
               </div>
@@ -114,7 +121,7 @@ const FormModal = ({ edit, idx, data }) => {
                   value={values.FA_num}
                 />
                 {touched.FA_num && errors.FA_num && (
-                  <span>{errors.FA_num}</span>
+                  <span style={{color:"red"}} >{errors.FA_num}</span>
                 )}
               </Form.Group>
               <Form.Group>
@@ -128,7 +135,7 @@ const FormModal = ({ edit, idx, data }) => {
                   value={values.Oral_num1}
                 />
                 {touched.Oral_num1 && errors.Oral_num1 && (
-                  <span>{errors.Oral_num1}</span>
+                  <span style={{color:"red"}} > {errors.Oral_num1}</span>
                 )}
               </Form.Group>
               <Form.Group>
@@ -142,7 +149,7 @@ const FormModal = ({ edit, idx, data }) => {
                   value={values.BA_num}
                 />
                 {touched.BA_num && errors.BA_num && (
-                  <span>{errors.BA_num}</span>
+                  <span  style={{color:"red"}}>{errors.BA_num}</span>
                 ) }
               </Form.Group>
               <Form.Group>
@@ -156,7 +163,7 @@ const FormModal = ({ edit, idx, data }) => {
                   value={values.Oral_num2}
                 />
                 {touched.Oral_num2 && errors.Oral_num2 ? (
-                  <span>{errors.Oral_num2}</span>
+                  <span style={{color:"red"}} >{errors.Oral_num2}</span>
                 ) : null}
               </Form.Group>
               <br />
@@ -170,10 +177,12 @@ const FormModal = ({ edit, idx, data }) => {
               </Button>
             </Form>
           )}
+          
         </Formik>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
+    <ToastContainer />
   </>
   );
 };

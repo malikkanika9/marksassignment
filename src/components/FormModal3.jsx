@@ -1,12 +1,14 @@
 import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Modal } from "react-bootstrap";
-import { AiFillEdit, AiOutlineAppstoreAdd } from 'react-icons/ai';
+import { AiFillEdit } from 'react-icons/ai';
 import Select from 'react-select';
 import { Part3Modal } from './Modal/Part3Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import "./style.css"
+import "./styles/styles.css"
 import { Addpart3_data,  Updatepart3_data }  from '../Redux/actions/action';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const options =[
   {value:"TERM-I", label:"TERM-I"},
   {value:"TERM-II", label:"TERM-II"}
@@ -42,7 +44,7 @@ const FormModal3 = ({edit, data,idx}) => {
         <span 
         onClick={handleShow}
         >
-          <AiFillEdit/>
+          <AiFillEdit onMouseOver={({target})=>target.style.backgroundColor="silver" } onMouseOut={({target})=>target.style.backgroundColor="white"}/>
         </span>
       ):
       (
@@ -70,6 +72,9 @@ const FormModal3 = ({edit, data,idx}) => {
                 setSubmitting(true);
                 resetForm();
                 setSubmitting(false);
+                toast.success(`Days  is successfully Added`, {
+                    position: "bottom-right",
+                  });
               }, 500);
             }}
           >
@@ -96,7 +101,7 @@ const FormModal3 = ({edit, data,idx}) => {
                       isDisabled={edit}
                     />
                     {touched.term && errors.term && (
-                      <span className="error">{errors.term}</span>
+                      <span  style={{color:"red"}} className="error">{errors.term}</span>
                     ) }
                   </div>
                 </div>
@@ -109,7 +114,7 @@ const FormModal3 = ({edit, data,idx}) => {
                    placeholder="enter Working Days"
                    name='working'/>
                    {
-                    touched.working && errors.working && (<span className="error">{errors.working}</span>)
+                    touched.working && errors.working && (<span style={{color:"red"}} className="error">{errors.working}</span>)
 
                    }
                 </Form.Group>
@@ -124,7 +129,7 @@ const FormModal3 = ({edit, data,idx}) => {
                    name='present'/>
                   
                    {
-                    touched.present && errors.present && (<span className="error">{errors.present}</span>)
+                    touched.present && errors.present && (<span style={{color:"red"}} className="error">{errors.present}</span>)
                    }
 
                 </Form.Group>
@@ -143,6 +148,7 @@ const FormModal3 = ({edit, data,idx}) => {
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
+      <ToastContainer />
       </>
   )
 }
