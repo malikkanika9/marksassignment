@@ -15,11 +15,7 @@ export const resultReducer=( store = initalStats, {type , payload})=>{
             }
 
         case UPDATE_RESULT:{
-            console.log(payload);
-            console.log(typeof(payload.idx));
-            console.log(store.result_part1.splice(payload.idx,1,payload.data))
-            // let editData = store.
-            // console.log(editData);
+           
             store.result_part1.splice(payload.idx,1,payload.data)
             return{
                 ...store,

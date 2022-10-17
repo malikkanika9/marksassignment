@@ -11,3 +11,4 @@ export const ADD_PART3_DATA = "ADD_PART3_DATA"
 export const UPDATE_PART3_DATA = "UPDATE_PART3_DATA"
 export const DELETE_PART3_DATA = "DELETE_PART3_DATA"
 
+export const LOGOUT = "LOGOUT"

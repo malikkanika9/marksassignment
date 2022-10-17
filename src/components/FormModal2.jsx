@@ -84,7 +84,7 @@ const FormModal2 = ({edit, idx,  data}) => {
                 });
               }, 500);
             }}
-          >
+          >   
             {({
               values,
               setFieldValue,

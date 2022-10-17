@@ -55,130 +55,129 @@ const FormModal = ({ edit, idx, data }) => {
 
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{edit ? "Edit Marks" : "Add Marks"}</Modal.Title>
+<Modal.Title>{edit ? "Edit Marks" : "Add Marks"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Formik
-          initialValues={edit ? data : initialValues}
-          validationSchema={Part1Modal}
-          // console.log(onSubmit)
+<Formik
+  initialValues={edit ? data : initialValues}
+  validationSchema={Part1Modal}
+  // console.log(onSubmit)
 
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            setSubmitting(true);
-            // console.log(values);
-            edit
-              ? dispatch(EditeResult(values, idx))
-              : dispatch(
-                  AddResult({ ...values, id: Math.random() + Date.now() })
-                );
-                
-            setTimeout(() => {
-              // alert(JSON.stringify(values, null, 2))
-              resetForm();
-              setSubmitting(false);
-              toast.success(`Marks  is successfully Added`, {
-                position: "bottom-right",
-              });
-            }, 500);
-          }}
-        >
-            
-          {({
-            values,
-            errors,
-            touched,
-            setFieldValue,
-            handleBlur,
-            handleChange,
-            handleSubmit,
-            isSubmitting,
-          }) => (
-            <Form onSubmit={handleSubmit}>
-              
-              <div className="form-group">
-                <div className="drop-down">
-                  <Select
-                    options={list}
-                    onChange={(option) => setFieldValue("sub", option)}
-                    name="sub"
-                    placeholder="Subject"
-                    value={values.sub}
-                    isDisabled={edit}
-                  />
-                  {touched.sub && errors.sub && (
-                    <span style={{color:"red"}}>{errors.sub}</span>
-                  ) } 
-                </div>
-              </div>
-              <Form.Group>
-                <Form.Label>FA</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="FA"
-                  name="FA_num"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.FA_num}
-                />
-                {touched.FA_num && errors.FA_num && (
-                  <span style={{color:"red"}} >{errors.FA_num}</span>
-                )}
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Oral</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="FA-Oral"
-                  name="Oral_num1"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.Oral_num1}
-                />
-                {touched.Oral_num1 && errors.Oral_num1 && (
-                  <span style={{color:"red"}} > {errors.Oral_num1}</span>
-                )}
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>BA</Form.Label>
-                <Form.Control
-                  type="number"
-                  name="BA_num"
-                  placeholder="BA"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.BA_num}
-                />
-                {touched.BA_num && errors.BA_num && (
-                  <span  style={{color:"red"}}>{errors.BA_num}</span>
-                ) }
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Oral</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="BA-Oral"
-                  name="Oral_num2"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.Oral_num2}
-                />
-                {touched.Oral_num2 && errors.Oral_num2 ? (
-                  <span style={{color:"red"}} >{errors.Oral_num2}</span>
-                ) : null}
-              </Form.Group>
-              <br />
-              <Button
-                variant="primary"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                {edit ? "Edit Marks" : "Add Marks"}
-               
-              </Button>
-            </Form>
-          )}
-          
-        </Formik>
+  onSubmit={(values, { setSubmitting, resetForm }) => {
+    setSubmitting(true);
+    // console.log(values);
+    edit
+ ? dispatch(EditeResult(values, idx))
+ : dispatch(
+     AddResult({ ...values, id: Math.random() + Date.now() })
+   );
+   
+  setTimeout(() => {
+ resetForm();
+ setSubmitting(false);
+ toast.success(`Marks  is successfully Added`, {
+   position: "bottom-right",
+ });
+  }, 500);
+  }}
+>
+    
+  {({
+    values,
+    errors,
+    touched,
+    setFieldValue,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+  }) => (
+    <Form onSubmit={handleSubmit}>
+ 
+ <div className="form-group">
+   <div className="drop-down">
+     <Select
+       options={list}
+       onChange={(option) => setFieldValue("sub", option)}
+       name="sub"
+       placeholder="Subject"
+       value={values.sub}
+       isDisabled={edit}
+     />
+     {touched.sub && errors.sub && (
+       <span style={{color:"red"}}>{errors.sub}</span>
+     ) } 
+   </div>
+ </div>
+ <Form.Group>
+   <Form.Label>FA</Form.Label>
+   <Form.Control
+     type="number"
+     placeholder="FA"
+     name="FA_num"
+     onChange={handleChange}
+     onBlur={handleBlur}
+     value={values.FA_num}
+   />
+   {touched.FA_num && errors.FA_num && (
+     <span style={{color:"red"}} >{errors.FA_num}</span>
+   )}
+ </Form.Group>
+ <Form.Group>
+   <Form.Label>Oral</Form.Label>
+   <Form.Control
+     type="number"
+     placeholder="FA-Oral"
+     name="Oral_num1"
+     onChange={handleChange}
+     onBlur={handleBlur}
+     value={values.Oral_num1}
+   />
+   {touched.Oral_num1 && errors.Oral_num1 && (
+     <span style={{color:"red"}} > {errors.Oral_num1}</span>
+   )}
+ </Form.Group>
+ <Form.Group>
+   <Form.Label>BA</Form.Label>
+   <Form.Control
+     type="number"
+     name="BA_num"
+     placeholder="BA"
+     onChange={handleChange}
+     onBlur={handleBlur}
+     value={values.BA_num}
+   />
+   {touched.BA_num && errors.BA_num && (
+     <span  style={{color:"red"}}>{errors.BA_num}</span>
+   ) }
+ </Form.Group>
+ <Form.Group>
+   <Form.Label>Oral</Form.Label>
+   <Form.Control
+     type="number"
+     placeholder="BA-Oral"
+     name="Oral_num2"
+     onChange={handleChange}
+     onBlur={handleBlur}
+     value={values.Oral_num2}
+   />
+   {touched.Oral_num2 && errors.Oral_num2 ? (
+     <span style={{color:"red"}} >{errors.Oral_num2}</span>
+   ) : null}
+ </Form.Group>
+ <br />
+ <Button
+   variant="primary"
+   type="submit"
+   disabled={isSubmitting}
+ >
+   {edit ? "Edit Marks" : "Add Marks"}
+  
+ </Button>
+    </Form>
+  )}
+  
+</Formik>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
