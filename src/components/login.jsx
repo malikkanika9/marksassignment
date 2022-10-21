@@ -24,7 +24,7 @@ const {token} = useSelector((store) => store.resultdata4.token);
         console.log("t" ,token);
         useEffect(()=>{
 if(token){
-    navigate("/Table")
+    navigate("/Middle")
 }
         },[token])
        

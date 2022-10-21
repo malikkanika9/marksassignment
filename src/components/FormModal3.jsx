@@ -29,14 +29,9 @@ const FormModal3 = ({edit, data,idx}) => {
   const {result_part3}= useSelector(state => state.result_data3)
   const selected = result_part3.map((item) => item.term.value);
   useEffect(() => {
-    // let data = initialValues.fi
     let data = options.filter((item) => !selected.includes(item.value));
-    // console.log(data);
     setList(data);
-    // console.log(list)
   }, [result_part3]);
-
-  // console.log(result_part3)
   return (
      <>
     {

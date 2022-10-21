@@ -5,6 +5,7 @@ import {Button} from "react-bootstrap"
 import {useRef} from "react"
 import {Routes,Route} from "react-router-dom"
 import {Login} from "./components/login"
+import { Middle } from './components/Middle';
 
 function App() {
   // const componentRef = useRef();
@@ -24,6 +25,7 @@ function App() {
     <div className="App" id="container">
        <Routes>
         <Route path="/" element={<Login/>}></Route>
+        <Route path="/Middle" element={<Middle/>}></Route>
         <Route path="/Table" element={<Tablecmpt/>}></Route>
         
       </Routes>

@@ -13,6 +13,9 @@ export const Navbar = () => {
       <div>
         <Link to={"/Table"}> table </Link>
       </div>
+      <div>
+        <Link to={"/Middle"}> table </Link>
+      </div>
       
     </div>
   );
